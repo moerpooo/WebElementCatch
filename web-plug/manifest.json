@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "自动化代码录制工具 Pro",
+  "version": "2.0",
+  "description": "跨页面录制点击、输入操作，生成 Selenium/DrissionPage/Playwright 代码",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
